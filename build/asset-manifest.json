@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/interactive-lab/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/interactive-lab/static/js/main.cb3ee2a2.chunk.js",
-    "main.js.map": "/interactive-lab/static/js/main.cb3ee2a2.chunk.js.map",
+    "main.js": "/interactive-lab/static/js/main.e5b31ccb.chunk.js",
+    "main.js.map": "/interactive-lab/static/js/main.e5b31ccb.chunk.js.map",
     "runtime-main.js": "/interactive-lab/static/js/runtime-main.892059a9.js",
     "runtime-main.js.map": "/interactive-lab/static/js/runtime-main.892059a9.js.map",
     "static/css/2.910c2dab.chunk.css": "/interactive-lab/static/css/2.910c2dab.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.910c2dab.chunk.css",
     "static/js/2.8683008e.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.cb3ee2a2.chunk.js"
+    "static/js/main.e5b31ccb.chunk.js"
   ]
 }

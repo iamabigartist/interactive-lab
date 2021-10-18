@@ -17,7 +17,7 @@ export const OneStore = () => {
 
 
     return <div>
-        <h1>Show the num of rendering  :</h1>
+        <h1>Show the num of renderin:</h1>
         {Array.from(counter_dict,
             ([name, num]) =>
                 <h3>{name}: {num}</h3>)}

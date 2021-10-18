@@ -1,10 +1,13 @@
 import {StateCreator} from "zustand"
 import {ZustandState} from "../useStoreZustand";
+import produce, {enableAllPlugins} from "immer";
 
 export interface CounterDictSlice {
     counter_dict: Map<string, number>,
     add1: (name: string) => void,
 }
+
+enableAllPlugins();
 
 const createCounterDictSlice: StateCreator<ZustandState> = (
     set,
@@ -12,15 +15,9 @@ const createCounterDictSlice: StateCreator<ZustandState> = (
     api) => ({
     counter_dict: new Map<string, number>(),
     add1: (name: string) => {
-        set((state) => {
-                return {
-                    counter_dict:
-                        state.counter_dict.set(
-                            name,
-                            (state.counter_dict?.get(name) ?? 0) + 1)
-                };
-            }
-        );
+        set(produce<CounterDictSlice>(state => {
+            state.counter_dict.set(name, (state.counter_dict.get(name) ?? 0) + 1);
+        }));
     },
 });
 

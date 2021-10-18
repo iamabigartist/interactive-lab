@@ -1,6 +1,5 @@
 import useStoreZustand from "./useStoreZustand";
-import React, {useEffect, useState} from "react";
-import {Slider} from "rsuite";
+import React, {useEffect} from "react";
 import {useControls} from "leva";
 
 export const OneStore = () => {

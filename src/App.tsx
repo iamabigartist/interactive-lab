@@ -11,7 +11,11 @@ function App() {
     const display_items = ([
         {name: "plain THREE canvas", item: <MyCanvas/>},
         {name: "Zustand", item: <OneStore/>},
-        {name:"Test End",item: <div><h1>This repo is used to test all kinds of interactive packages for our website.</h1></div>}
+        {name:"Test End",item:
+                <div>
+                    <h1>This repo is used to test all kinds of interactive packages for our website.</h1>
+                    <a href={"https://github.com/64cksp4c3"}>Studio HomePage</a>
+                </div>}
     ]);
 
     return (

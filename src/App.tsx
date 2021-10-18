@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import "rsuite/dist/rsuite.min.css";
 import './App.css';
+import {MyCanvas} from "./Labs/Three/MyCanvas";
+import {Dropdown} from "rsuite";
+import {OneStore} from "./Labs/States/ZustandStore/ZustandLab";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [display_i, setDisplay_i] = useState(0);
+    const display_items = ([
+        {name: "plain THREE canvas", item: <MyCanvas/>},
+        {name: "Zustand", item: <OneStore/>},
+    ]);
+
+    return (
+        <div className="App">
+            <Dropdown
+                title={display_items[display_i].name}
+                activeKey={display_i}
+                style={{position: "fixed", top: "5%", left: "5%"}}
+                onSelect={eventKey => {
+                    setDisplay_i(eventKey);
+                }}
+            >
+                {display_items.map((value, index) =>
+                    <Dropdown.Item eventKey={index}>{value.name} </Dropdown.Item>)}
+            </Dropdown>
+            {display_items[display_i].item}
+        </div>
+    );
 }
 
 export default App;

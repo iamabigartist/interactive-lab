@@ -30,7 +30,6 @@ export const MyCanvas: FC = () => {
         camera.position.z = v;
 
         animate();
-        console.log(canvas.current);
         canvas.current?.replaceChildren(renderer.domElement);
 
 

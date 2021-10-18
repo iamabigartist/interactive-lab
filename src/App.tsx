@@ -7,7 +7,7 @@ import {OneStore} from "./Labs/States/ZustandStore/ZustandLab";
 
 function App() {
 
-    const [display_i, setDisplay_i] = useState(0);
+    const [display_i, setDisplay_i] = useState(1);
     const display_items = ([
         {name: "plain THREE canvas", item: <MyCanvas/>},
         {name: "Zustand", item: <OneStore/>},
@@ -24,7 +24,7 @@ function App() {
                 }}
             >
                 {display_items.map((value, index) =>
-                    <Dropdown.Item eventKey={index}>{value.name} </Dropdown.Item>)}
+                    <Dropdown.Item key={index} eventKey={index}>{value.name} </Dropdown.Item>)}
             </Dropdown>
             {display_items[display_i].item}
         </div>

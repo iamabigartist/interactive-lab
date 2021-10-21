@@ -81,7 +81,7 @@ const DrawFunction: FC = () => {
         </div>
         <Canvas style={{top: "100px", height: "700px"}}>
             <Line points={cur_curve_points}/>
-            <OrbitControls enableRotate={false} maxZoom={0} minZoom={0}/>
+            <OrbitControls enableRotate={false} minDistance={0.5} maxDistance={1.2}/>
         </Canvas>
     </div>);
 }

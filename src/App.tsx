@@ -4,18 +4,22 @@ import './App.css';
 import {MyCanvas} from "./Labs/Three/MyCanvas";
 import {Dropdown} from "rsuite";
 import {OneStore} from "./Labs/States/ZustandStore/ZustandLab";
+import DrawFunction from "./Labs/Three/DrawFunction";
 
 function App() {
 
-    const [display_i, setDisplay_i] = useState(1);
+    const [display_i, setDisplay_i] = useState(2);
     const display_items = ([
         {name: "plain THREE canvas", item: <MyCanvas/>},
         {name: "Zustand", item: <OneStore/>},
-        {name:"Test End",item:
+        {name: "THREE draw function", item: <DrawFunction/>},
+        {
+            name: "Test End", item:
                 <div>
                     <h1>This repo is used to test all kinds of interactive packages for our website.</h1>
                     <a href={"https://github.com/64cksp4c3"}>Studio HomePage</a>
-                </div>}
+                </div>
+        }
     ]);
 
     return (

@@ -88,10 +88,9 @@ const DrawFunction: FC = () => {
             <h1>{simplify(cur_curve_string).toString()}</h1>
             <h1>{cur_curve_string}</h1>
         </div>
-        <Canvas style={{top: "100px", height: "700px"}} gl={{antialias: true}}>
-            <Line points={cur_curve_points} color={"red"}/>
-            <Line points={ori_curve_points}/>
-            <OrbitControls enableRotate={false} maxZoom={0} minZoom={0}/>
+        <Canvas style={{top: "100px", height: "700px"}}>
+            <Line points={cur_curve_points}/>
+            <OrbitControls enableRotate={false} minDistance={0.5} maxDistance={1.2}/>
         </Canvas>
     </div>);
 }

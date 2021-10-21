@@ -66,7 +66,7 @@ export function Array_V2TOV3(array_V2: Vector2[]) {
 const DrawFunction: FC = () => {
 
     let ori_f = "sin((1/(x+0.01))^2)";
-    let order = 5;
+    let order = 6;
     let range: [number, number] = [-5, 5];
     let step = 0.01;
 
@@ -88,9 +88,10 @@ const DrawFunction: FC = () => {
             <h1>{simplify(cur_curve_string).toString()}</h1>
             <h1>{cur_curve_string}</h1>
         </div>
-        <Canvas style={{top: "100px", height: "700px"}}>
-            <Line points={cur_curve_points}/>
-            <OrbitControls enableRotate={false} minDistance={0.5} maxDistance={1.2}/>
+        <Canvas style={{top: "100px", height: "700px"}} gl={{antialias: true}}>
+            <Line points={cur_curve_points} color={"red"}/>
+            <Line points={ori_curve_points}/>
+            <OrbitControls enableRotate={false} maxDistance={30} minDistance={0.1}/>
         </Canvas>
     </div>);
 }

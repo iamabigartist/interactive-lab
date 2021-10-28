@@ -24,6 +24,7 @@ function App() {
 
     return (
         <div className="App">
+            {display_items[display_i].item}
             <Dropdown
                 title={display_items[display_i].name}
                 activeKey={display_i}
@@ -35,7 +36,6 @@ function App() {
                 {display_items.map((value, index) =>
                     <Dropdown.Item key={index} eventKey={index}>{value.name} </Dropdown.Item>)}
             </Dropdown>
-            {display_items[display_i].item}
         </div>
     );
 }

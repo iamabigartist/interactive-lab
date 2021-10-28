@@ -1,11 +1,9 @@
-import {FC} from "react";
+import {FC, useState} from "react";
 import {Canvas} from "@react-three/fiber";
 import {acos, chain, compile, derivative, evaluate, exp, parse, parser, simplify, string} from "mathjs";
 import {Line, OrbitControls, useHelper} from "@react-three/drei";
 import {ArrowHelper, Vector2, Vector3} from "three";
-import {parseOptions} from "leva/dist/declarations/src/utils";
-import {EPERM} from "constants";
-import {newFloatAttr} from "three/examples/jsm/loaders/IFCLoader";
+import {Slider} from "rsuite";
 
 const approach_line_len = 100000;
 
@@ -65,12 +63,12 @@ export function Array_V2TOV3(array_V2: Vector2[]) {
 
 const DrawFunction: FC = () => {
 
-    let ori_f = "sin((1/(x+0.01))^2)";
-    let order = 6;
-    let range: [number, number] = [-5, 5];
-    let step = 0.01;
+    const [ori_f, setOri_f] = useState("sin(x^2)");
+    const [order, setOrder] = useState(3);
+    const [range, setRange] = useState<[number, number]>([-5, 5]);
+    const [step, setStep] = useState(0.01);
 
-    let cur_curve_string = TaylorExpansion(ori_f, "x", 0, order);
+    let cur_curve_string = TaylorExpansion(ori_f, "x", 1, order);
     let cur_curve = compile(simplify(cur_curve_string).toString());
     let cur_curve_points = Array_V2TOV3(SampleFx(
         (x) =>
@@ -83,16 +81,31 @@ const DrawFunction: FC = () => {
             ori_curve.evaluate({x: x}),
         range, step));
 
-    return (<div>
-        <div>
-            <h1>{simplify(cur_curve_string).toString()}</h1>
-            <h1>{cur_curve_string}</h1>
+    return (<div style={{
+        backgroundColor: "ghostwhite",
+        position: "absolute",
+        left: "10%",
+        width: "80%",
+        top: "30%",
+        height: "50%",
+        flexDirection: "row",
+        display: "flex"
+    }}>
+        <div style={{backgroundColor:"beige",marginLeft:"10px"}}>
+            <Canvas gl={{antialias: true}} camera={{zoom: 1}}>
+                <Line points={cur_curve_points} color={"red"}/>
+                <Line points={ori_curve_points}/>
+                <OrbitControls enableRotate={false} maxDistance={30} minDistance={0.1}/>
+            </Canvas>
         </div>
-        <Canvas style={{top: "100px", height: "700px"}} gl={{antialias: true}}>
-            <Line points={cur_curve_points} color={"red"}/>
-            <Line points={ori_curve_points}/>
-            <OrbitControls enableRotate={false} maxDistance={30} minDistance={0.1}/>
-        </Canvas>
+        <div style={{width:"30%",backgroundColor:"azure",}}>
+            <div style={{margin:"10px 10px 10px 10px"}}>
+                <p>Order</p>
+                <Slider step={1} min={0} max={7} value={order} onChange={(v) => {
+                    setOrder(v);
+                }}/>
+            </div>
+        </div>
     </div>);
 }
 

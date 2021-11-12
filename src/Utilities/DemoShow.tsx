@@ -29,7 +29,7 @@ const DemoShow: FC = () => {
             <Dropdown
                 title={display_demos[display_i].name}
                 activeKey={display_i}
-                style={{position: "fixed", top: "5%", left: "5%"}}
+                style={{position: "fixed", top: "2.5%", left: "2.5%"}}
                 onSelect={eventKey => {
                     setDisplay_i(eventKey);
                 }}

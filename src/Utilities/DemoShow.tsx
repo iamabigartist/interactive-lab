@@ -15,8 +15,9 @@ const DemoShow: FC = () => {
         {
             name: "Test End", item:
                 <div>
-                    <h1>This repo is used to test all kinds of interactive packages for our website.</h1>
-                    <a href={"https://github.com/64cksp4c3"}>Studio HomePage</a>
+                    <h1>This repo is used to test all kinds of interactive packages for my own website.</h1>
+                    <a href={"https://github.com/64cksp4c3"}>My HomePage</a>
+                    <p>My Resume Page: Not Yet coded......</p>
                 </div>
         }
     ]);

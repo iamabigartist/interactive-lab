@@ -1,4 +1,5 @@
 {
+  "homepage": "https://iamabigartist.github.io/interactive-lab/",
   "name": "interactive-lab",
   "version": "0.1.0",
   "private": true,
@@ -55,6 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://64cksp4c3.github.io/interactive-lab/"
+  }
 }
